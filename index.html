@@ -187,24 +187,24 @@
 
     <div class="container">
         <div id="hal1">
-            <img src="hellokittyy.gif" style="width: 110px; margin-bottom: 10px;">
+            <img src="kittyhello3.gif" style="width: 110px; margin-bottom: 10px;">
             <div class="teks-pembuka">
                 hallooww sayaaangg.. <br>ada pesan buat kamuu didalemm suratt inii.. pilihh satuu yahh sayaangg 🐱
             </div>
             <div class="bungkus-surat">
-                <img src="letter.png" class="surat" onclick="bukaSurat(this)">
-                <img src="letter.png" class="surat" onclick="bukaSurat(this)">
-                <img src="letter.png" class="surat" onclick="bukaSurat(this)">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
             </div>
         </div>
 
         <div id="hal2">
             <div class="kotak-pesan">
                 <img src="strawberry.png" class="hiasan" style="top: 5px; left: 5px;">
-                <img src="hellokityz.png" class="hiasan" style="bottom: 5px; right: 5px;">
+                <img src="kittyhello2.png" class="hiasan" style="bottom: 5px; right: 5px;">
                 
                 <div style="position: relative; z-index: 1;">
-                    <img src="hello-kitty.gif" class="gif-utama">
+                    <img src="kittyhello1.gif" class="gif-utama">
                     
                     <h1>maaff yaahhh sayaaanggg.. 🥺🫂</h1>
                     
@@ -230,12 +230,16 @@
 
         function bukaSurat(el) {
             document.getElementById('musik').play().catch(e => {});
+            
             const h1 = document.getElementById('hal1');
             const h2 = document.getElementById('hal2');
+            
             el.style.transform = "scale(8) translateY(-20px)";
             el.style.opacity = "0";
             el.style.filter = "blur(10px)";
+            
             h1.classList.add('tutup');
+            
             setTimeout(() => {
                 h1.style.display = 'none';
                 h2.style.display = 'block';
