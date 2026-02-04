@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>spesiall forr depiikuu tersayaaangg 💐</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap');
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: #ffdde1;
+            background-image: radial-gradient(#ffb7c5 1px, transparent 1px);
+            background-size: 20px 20px;
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            width: 92%;
+            max-width: 380px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- HALAMAN 1 --- */
+        #hal1 { 
+            display: block; 
+            transition: opacity 0.8s ease, transform 0.8s ease; 
+        }
+        
+        /* Animasi Transisi Halaman yang lebih halus */
+        .tutup { 
+            opacity: 0; 
+            transform: scale(0.8); 
+            filter: blur(8px);
+            pointer-events: none; 
+        }
+        
+        .teks-pembuka {
+            font-family: 'Fredoka One', cursive;
+            color: #d81b60;
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .bungkus-surat {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .surat {
+            width: 70px;
+            cursor: pointer;
+            /* Transisi dibikin lebih lama dan lembut */
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        .surat:hover { transform: scale(1.1) rotate(3deg); }
+
+        /* --- HALAMAN 2 --- */
+        #hal2 {
+            display: none;
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        #hal2.muncul { 
+            display: block; 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+        }
+
+        .kotak-pesan {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 18px;
+            border-radius: 25px;
+            border: 6px solid #ff4081;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(255, 64, 129, 0.3);
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .gif-utama { 
+            width: 85px;
+            display: block;
+            margin: 0 auto 8px auto; 
+            animation: gerak 2s infinite;
+        }
+
+        h1 { 
+            font-family: 'Fredoka One', cursive; 
+            color: #d81b60; 
+            font-size: 17px;
+            margin: 0 0 10px 0;
+        }
+
+        .isi-pesan {
+            text-align: justify;
+            color: #555;
+            font-size: 12.5px;
+            line-height: 1.4;
+        }
+
+        .isi-pesan p { 
+            margin-bottom: 8px; 
+            margin-top: 0; 
+            opacity: 0; 
+            transform: translateY(15px);
+        }
+
+        /* Muncul satu per satu */
+        .muncul .isi-pesan p {
+            animation: teksMuncul 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .muncul .isi-pesan p:nth-child(1) { animation-delay: 0.5s; }
+        .muncul .isi-pesan p:nth-child(2) { animation-delay: 1.5s; }
+        .muncul .isi-pesan p:nth-child(3) { animation-delay: 2.5s; }
+        .muncul .isi-pesan p:nth-child(4) { animation-delay: 3.5s; }
+
+        @keyframes teksMuncul {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .penting { color: #d81b60; font-weight: bold; }
+
+        .pilihan {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            opacity: 0;
+            animation: teksMuncul 0.8s ease forwards 4s;
+        }
+
+        .tombol-wa {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-family: 'Fredoka One', cursive;
+            text-decoration: none;
+            font-size: 13px;
+            box-shadow: 0 4px 0 #c2185b;
+        }
+
+        .tombol-gamau {
+            background: #e0e0e0;
+            color: #888;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 11px;
+        }
+
+        .hiasan { 
+            position: absolute; 
+            width: 35px;
+            opacity: 0.6; 
+            animation: melayang 3s infinite ease-in-out; 
+        }
+
+        @keyframes gerak { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes melayang { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(10deg); } }
+
+        .efek-hati { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+    </style>
+</head>
+<body>
+
+    <audio id="musik" loop>
+        <source src="bilakautakdisampingku.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="efek-hati" id="hati"></div>
+
+    <div class="container">
+        <div id="hal1">
+            <img src="kittyhello3.gif" style="width: 110px; margin-bottom: 10px;">
+            <div class="teks-pembuka">
+                hallooww sayaaangg.. <br>ada pesan buat kamuu didalemm suratt inii.. pilihh satuu yahh sayaangg 🐱
+            </div>
+            <div class="bungkus-surat">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
+                <img src="surat.png" class="surat" onclick="bukaSurat(this)">
+            </div>
+        </div>
+
+        <div id="hal2">
+            <div class="kotak-pesan">
+                <img src="strawberry.png" class="hiasan" style="top: 5px; left: 5px;">
+                <img src="kittyhello2.png" class="hiasan" style="bottom: 5px; right: 5px;">
+                
+                <div style="position: relative; z-index: 1;">
+                    <img src="kittyhello1.gif" class="gif-utama">
+                    
+                    <h1>maaff yaahhh sayaaanggg.. 🥺🫂</h1>
+                    
+                    <div class="isi-pesan">
+                        <p>hallooww sayaaangg.. maafff yaahhh akuu enggaa bisa bantuu banyaakk pas kamuu lagii badmood bangett huhuhuu.. akuuu tauu kokk kamu pastiii sekesell ituu samaa akuuu huwaaaaaaa..</p>
+                        <p>maaff yaahhh sayaaanggg, <span class="penting">akuu kuraangg pekaa bangett</span> enggaa ngasii saran yang baikk pas kamuu lagii butuhh.. nyesel bangettt malahh bikin kamuu makin kesell.. 🥺</p>
+                        <p>sebenarnyaaa <span class="penting">akuu kangeenn bangetttt</span> dengerin kamuu ceritaa.. balikk ceria lagii yahh? 🥺 nanti kalau ada apa apa lagi ceritain ajaaa, aku bakal usaha lebih buat bantuuu sayaaanggg..</p>
+                        <p style="text-align: center; margin-bottom: 0;">i loveee youuu sooo muchhh depiii sayaaanggkuu! 🫂💐</p>
+                    </div>
+                    
+                    <div class="pilihan">
+                        <a href="https://wa.me/6283144731627?text=iyaaa%20aku%20maafin%20kok%20sayanggg%20mwaahhh" class="tombol-wa" id="btnYa">maafin akuu yahh? 🥺</a>
+                        <button class="tombol-gamau" id="btnGak" onclick="pindah()">gamauuu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let ukur = 1;
+        let keci = 1;
+
+        function bukaSurat(el) {
+            document.getElementById('musik').play().catch(e => {});
+            
+            const h1 = document.getElementById('hal1');
+            const h2 = document.getElementById('hal2');
+            
+            // Animasi zoom yang lebih lambat dan "breathable"
+            el.style.transform = "scale(8) translateY(-20px)";
+            el.style.opacity = "0";
+            el.style.filter = "blur(10px)";
+            
+            // Halaman 1 perlahan menghilang
+            h1.classList.add('tutup');
+            
+            // Delay sedikit lebih lama agar transisinya dapet
+            setTimeout(() => {
+                h1.style.display = 'none';
+                h2.style.display = 'block';
+                // Trigger animasi halaman 2
+                setTimeout(() => {
+                    h2.classList.add('muncul');
+                }, 50);
+            }, 800);
+        }
+
+        function pindah() {
+            const btnYa = document.getElementById('btnYa');
+            const btnGak = document.getElementById('btnGak');
+            ukur += 0.3;
+            btnYa.style.transform = `scale(${ukur})`;
+            keci -= 0.15;
+            if (keci < 0.3) {
+                btnGak.style.display = 'none';
+            } else {
+                btnGak.style.transform = `scale(${keci})`;
+            }
+            const kata = ["pikirinn lagi..", "yakinn?", "huwaaaaaa", "maafinnn pliss 🥺"];
+            btnGak.innerText = kata[Math.floor(Math.random() * kata.length)];
+        }
+
+        function buatHati() {
+            const h = document.createElement('div');
+            h.innerHTML = '❤️';
+            h.style.position = 'fixed';
+            h.style.left = Math.random() * 100 + 'vw';
+            h.style.top = '-20px';
+            h.style.fontSize = Math.random() * 15 + 10 + 'px';
+            h.style.opacity = Math.random() * 0.5 + 0.3;
+            h.style.transition = 'transform 4s linear';
+            document.getElementById('hati').appendChild(h);
+            setTimeout(() => { h.style.transform = `translateY(110vh) rotate(${Math.random() * 360}deg)`; }, 100);
+            setTimeout(() => { h.remove(); }, 4500);
+        }
+        setInterval(buatHati, 600);
+    </script>
+</body>
+</html>
